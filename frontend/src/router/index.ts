@@ -26,7 +26,16 @@ const router = createRouter({
             path: '/dashboard',
             name: 'dashboard',
             component: DashboardView,
-            meta: { requiresAuth: true }
+            beforeEnter: (to, from, next) => {
+                const accessToken = localStorage.getItem(
+                    'spotify_access_token'
+                );
+                if (accessToken) {
+                    next();
+                } else {
+                    next('/');
+                }
+            }
         },
         {
             path: '/about',
@@ -37,18 +46,6 @@ const router = createRouter({
             component: () => import('../views/AboutView.vue')
         }
     ]
-});
-
-router.beforeEach((to, from, next) => {
-    const accessToken = localStorage.getItem('spotify_access_token');
-
-    if (to.meta.requiresAuth && !accessToken) {
-        next('/');
-    } else if (to.path === '/' && accessToken) {
-        next('/dashboard');
-    } else {
-        next();
-    }
 });
 
 export default router;

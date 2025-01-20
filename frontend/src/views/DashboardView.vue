@@ -1,10 +1,12 @@
 <script lang="ts">
 import DashboardHeader from '../components/DashboardHeader.vue';
 import DashboardBread from '../components/DashboardBread.vue';
+import DashboardSidebar from '../components/DashboardSidebar.vue';
 // import { useRouter } from 'vue-router';
 
 export default {
     components: {
+        DashboardSidebar,
         DashboardHeader,
         DashboardBread
     }
@@ -13,15 +15,19 @@ export default {
 
     //     const logout = () => {
     //         localStorage.removeItem('spotify_access_token');
-    //         localStorage.removeItem('spotify_refresh_token');
+
     //         router.push('/');
     //     };
+    //     return {
+    //         logout,
+    //     }
     // }
 };
 </script>
 
 <template>
-    <div class="">
+    <div class="flex">
+        <DashboardSidebar />
         <!-- <div>
             <h1>Welcome to Your Dashboard</h1>
             <button @click="logout">Logout</button>

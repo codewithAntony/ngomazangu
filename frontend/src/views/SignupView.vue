@@ -1,30 +1,38 @@
 <script lang="ts">
 import { ref, onMounted } from 'vue';
-import DashboardView from '../views/DashboardView.vue';
 import { useRouter } from 'vue-router';
 import { loginUrl } from '../utils/auth';
 
 export default {
     name: 'SignupView',
-    components: {
-        DashboardView
-    },
+
     setup() {
         const router = useRouter();
         const accessToken = ref<string | null>(
             localStorage.getItem('spotify_access_token')
         );
 
+        const extractAccessTokenFromUrl = () => {
+            const hash = window.location.hash.substring(1);
+            const params = new URLSearchParams(hash);
+            const token = params.get('access_token');
+
+            if (token) {
+                localStorage.setItem('spotify_access_token', token);
+                accessToken.value = token;
+                router.push('/dashboard');
+            }
+        };
+
         onMounted(() => {
             if (accessToken.value) {
                 router.push('/dashboard');
             }
+
+            extractAccessTokenFromUrl();
+
             console.log('Component mounted, checking for token...');
-            console.log('Client ID:', import.meta.env.VITE_SPOTIFY_CLIENT_ID);
-            console.log(
-                'Redirect URI:',
-                import.meta.env.VITE_SPOTIFY_REDIRECT_URI
-            );
+
             if (!import.meta.env.VITE_SPOTIFY_CLIENT_ID) {
                 console.error(
                     'Missing VITE_SPOTIFY_CLIENT_ID environment variable'
@@ -46,10 +54,8 @@ export default {
                 return;
             }
 
-            // Log the login attempt
             console.log('Initiating Spotify login with URL:', loginUrl);
 
-            // Redirect to Spotify auth
             window.location.href = loginUrl;
         };
 
@@ -178,7 +184,6 @@ export default {
                 </div>
             </div>
         </div>
-        <DashboardView v-else />
     </div>
 </template>
 <style></style>
