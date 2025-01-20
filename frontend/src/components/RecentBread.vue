@@ -29,50 +29,39 @@ interface RecentlyPlayedItem {
     played_at: string;
 }
 
-const timeRange = ref('long_term');
-const topArtists = ref<SpotifyArtist[]>([]);
-const topTracks = ref<SpotifyTrack[]>([]);
 const recentTracks = ref<RecentlyPlayedItem[]>([]);
 
 const spotify = new SpotifyService(
     localStorage.getItem('spotify_access_token') || ''
 );
 
-const fetchData = async () => {
+const fetchRecentlyPlayed = async () => {
     try {
-        console.log('fetching data..');
-        const [artistsData, tracksData, recentData] = await Promise.all([
-            spotify.getTopArtists(timeRange.value),
-            spotify.getTopTracks(timeRange.value),
-            spotify.getRecentlyPlayed()
-        ]);
+        console.log('fetching recently played tracks..');
+        const recentData = await spotify.getRecentlyPlayed(5);
+        console.log('Recently played data:', recentData);
 
-        console.log('Artists Data:', artistsData);
-        console.log('Tracks Data:', tracksData);
-        console.log('Recently Played Data:', recentData);
-
-        topArtists.value = artistsData.items;
-        topTracks.value = tracksData.items;
         recentTracks.value = recentData.items;
     } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error fetching recently played tracks:', error);
     }
 };
 
-onMounted(fetchData);
+onMounted(fetchRecentlyPlayed);
 </script>
+
 <template>
     <div class="flex flex-col px-5 mb-3">
         <h1 class="text-2xl font-bold my-3">Recently Played Tracks</h1>
         <div class="space-y-2">
             <div
-                v-for="(item, index) in recentTracks.slice(1, 4)"
+                v-for="(item, index) in recentTracks"
                 :key="item.track.id"
                 class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg group"
             >
                 <div class="flex items-center gap-4">
                     <span class="text-lg font-medium text-gray-500">{{
-                        index + 2
+                        index + 1
                     }}</span>
                     <img
                         v-if="item.track.album.images[0]?.url"

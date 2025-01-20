@@ -66,7 +66,7 @@ onMounted(() => {
                     </div>
                     <div class="w-48 sm:w-auto mb-8 sm:mb-0">
                         <img
-                            src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2xnNDZ4bHA2ZDYzbnRraXlrYTZ4NHk4eGd4b3A0dHNvbDVxa2JxdCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5tiNlHkA1WdUh3jRDW/giphy.gif"
+                            src="@/assets/images/penguin.gif"
                             alt="Dancing Penguin"
                             class="rounded-full w-full"
                         />
