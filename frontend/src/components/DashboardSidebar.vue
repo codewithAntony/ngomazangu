@@ -1,113 +1,30 @@
-<script lang="ts">
-import { ref, onMounted } from 'vue';
-import DashboardView from '../views/DashboardView.vue';
-import { useRouter } from 'vue-router';
-import { loginUrl } from '../utils/auth';
-
-export default {
-    name: 'SignupView',
-    components: {
-        DashboardView
-    },
-    setup() {
-        const router = useRouter();
-        const accessToken = ref<string | null>(
-            localStorage.getItem('spotify_access_token')
-        );
-
-        onMounted(() => {
-            if (accessToken.value) {
-                router.push('/dashboard');
-            }
-            console.log('Component mounted, checking for token...');
-            console.log('Client ID:', import.meta.env.VITE_SPOTIFY_CLIENT_ID);
-            console.log(
-                'Redirect URI:',
-                import.meta.env.VITE_SPOTIFY_REDIRECT_URI
-            );
-            if (!import.meta.env.VITE_SPOTIFY_CLIENT_ID) {
-                console.error(
-                    'Missing VITE_SPOTIFY_CLIENT_ID environment variable'
-                );
-            }
-            if (!import.meta.env.VITE_SPOTIFY_REDIRECT_URI) {
-                console.error(
-                    'Missing VITE_SPOTIFY_REDIRECT_URI environment variable'
-                );
-            }
-        });
-
-        const handleSpotifyLogin = () => {
-            console.log('Initiating spotify login ..');
-            if (!loginUrl) {
-                console.error(
-                    'Login URL is undefined. Check your environment variables.'
-                );
-                return;
-            }
-
-            // Log the login attempt
-            console.log('Initiating Spotify login with URL:', loginUrl);
-
-            // Redirect to Spotify auth
-            window.location.href = loginUrl;
-        };
-
-        return {
-            accessToken,
-            handleSpotifyLogin
-        };
-    }
-};
-</script>
+<script setup lang="ts"></script>
 <template>
-    <div class="h-screen font-[sans-serif] items-center justify-center p-4">
-        <div
-            v-if="!accessToken"
-            class="flex flex-col justify-center items-center bg-white max-w-7xl h-full"
-        >
-            <div class="text-center mb-5">
-                <RouterLink to="/">
-                    <span
-                        class="text-black font-normal text-2xl sm:text-3xl sm:font-bold uppercase"
-                        >ngoma</span
-                    ><span
-                        class="text-[#FECA11] font-normal text-2xl sm:text-3xl sm:font-bold uppercase"
-                        >Zangu</span
-                    >
-                </RouterLink>
-            </div>
-            <div
-                class="flex justify-center items-center gap-y-8 max-w-2xl h-[80%] w-full shadow-[0_2px_13px_-6px_rgba(0,0,0,0.4)] rounded-xl relative overflow-hidden"
-            >
-                <div class="flex flex-col items-center p-6 w-full mx-auto">
-                    <div class="w-full max-w-md space-y-6">
-                        <div class="text-center">
-                            <h3
-                                class="text-blue-500 lg:text-3xl text-2xl font-extrabold max-md:text-center"
-                            >
-                                Create an account
-                            </h3>
-                        </div>
-                        <div class="text-center">
-                            <h2
-                                class="text-black sm:font-extrabold text-lg font-semibold pb-3 sm:text-1xl"
-                            >
-                                Discover your music streaming stats
-                            </h2>
-                        </div>
-
-                        <button
-                            @click="handleSpotifyLogin"
-                            type="button"
-                            class="w-full py-2.5 px-4 text-sm font-semibold rounded-md flex items-center justify-center text-blue-500 bg-blue-100 hover:bg-blue-200 focus:outline-none"
+    <div class="flex flex-col h-screen bg-[#4095C3]">
+                <div class="mb-9 pt-3 px-2">
+                    <RouterLink to="/" class="inline-block">
+                        <span
+                            class="text-white font-normal text-2xl sm:text-3xl sm:font-bold uppercase"
+                            >ngoma</span
+                        >
+                        <span
+                            class="text-[#FECA11] font-normal text-2xl sm:text-3xl sm:font-bold uppercase"
+                            >Zangu</span
+                        >
+                    </RouterLink>
+                </div>
+                <nav>
+                    <ul class="flex flex-col items-center space-y-3">
+                        <a href="/dashboard">
+<div
+                            class="flex gap-1 items-center font-bold px-8 py-1 bg-white justify-center"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 x="0px"
                                 y="0px"
-                                width="40"
-                                height="40"
+                                width="20"
+                                height="20"
                                 viewBox="0 0 48 48"
                             >
                                 <linearGradient
@@ -164,21 +81,46 @@ export default {
                                     d="M31.747,33.915c-0.292,0-0.585-0.145-0.877-0.292c-2.777-1.607-6.139-2.484-9.792-2.484 c-2.047,0-4.093,0.291-5.993,0.73c-0.292,0-0.731,0.146-0.877,0.146c-0.731,0-1.169-0.586-1.169-1.17 c0-0.73,0.438-1.17,1.023-1.314c2.338-0.586,4.677-0.877,7.161-0.877c4.093,0,7.893,1.021,11.108,2.924 c0.438,0.291,0.731,0.584,0.731,1.314C32.916,33.478,32.331,33.915,31.747,33.915z M33.793,28.945c-0.438,0-0.73-0.144-1.023-0.291 c-3.068-1.9-7.308-3.071-12.13-3.071c-2.339,0-4.531,0.293-6.139,0.733c-0.439,0.144-0.585,0.144-0.877,0.144 c-0.877,0-1.462-0.73-1.462-1.461c0-0.877,0.439-1.316,1.169-1.607c2.192-0.584,4.385-1.023,7.454-1.023 c4.97,0,9.793,1.17,13.593,3.507c0.584,0.291,0.877,0.877,0.877,1.461C35.255,28.215,34.67,28.945,33.793,28.945z M36.132,23.101 c-0.438,0-0.585-0.146-1.023-0.291c-3.508-2.047-8.769-3.217-13.885-3.217c-2.631,0-5.262,0.293-7.6,0.877 c-0.293,0-0.585,0.146-1.023,0.146c-1.023,0.146-1.754-0.73-1.754-1.754c0-1.023,0.585-1.607,1.315-1.754 c2.777-0.877,5.7-1.17,9.062-1.17c5.554,0,11.4,1.17,15.785,3.654c0.584,0.293,1.022,0.877,1.022,1.754 C37.886,22.369,37.154,23.101,36.132,23.101z"
                                 ></path>
                             </svg>
-                            Sign in with Spotify
-                        </button>
-
-                        <p class="text-xs text-gray-400">
-                            Echoes use Spotify Web API, and Spotify Implicit
-                            Grant Flow for user Authorization, also require
-                            access to your Spotify account to perform but
-                            application works as client side only and your
-                            Spotify data is not stored to any server. Learn more
-                        </p>
-                    </div>
-                </div>
+                            Spotify
+                        </div>
+                        </a>
+                        
+                        <li>
+                            <a
+                                href="#dashboard"
+                                class="text-gray-700 hover:text-[#FECA11]"
+                                >Dashboard</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#top-artists"
+                                class="text-gray-700 hover:text-[#FECA11]"
+                                >Top Artists</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#top-tracks"
+                                class="text-gray-700 hover:text-[#FECA11]"
+                                >Top Tracks</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#recently-played"
+                                class="text-gray-700 hover:text-[#FECA11]"
+                                >Recently Played</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#new-discovery"
+                                class="text-gray-700 hover:text-[#FECA11]"
+                                >New Discovery</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
             </div>
-        </div>
-        <DashboardView v-else />
-    </div>
 </template>
-<style></style>

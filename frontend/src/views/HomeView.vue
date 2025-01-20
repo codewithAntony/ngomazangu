@@ -1,5 +1,15 @@
-<script lang="ts">
-export default {};
+<script setup lang="ts">
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+onMounted(() => {
+    const accessToken = localStorage.getItem('spotify_access_token');
+    if (accessToken) {
+        router.push('/dashboard');
+    }
+});
 </script>
 
 <template>

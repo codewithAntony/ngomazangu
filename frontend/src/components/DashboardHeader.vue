@@ -1,39 +1,71 @@
 <template>
-    <header class="p-4 bg-white shadow">
+    <div class="py-5 px-3 bg-white">
         <div class="flex justify-between items-center">
-            <h1 class="text-2xl font-bold">Your Music Dashboard</h1>
-            <div class="flex gap-4">
-                <button
-                    v-for="range in ['short_term', 'medium_term', 'long_term']"
-                    :key="range"
-                    @click="handleTimeRangeChange(range)"
-                    :class="[
-                        'px-4 py-2 rounded',
-                        initialTimeRange === range
-                            ? 'bg-blue-500 text-white'
-                            : 'bg-gray-200 hover:bg-gray-300'
-                    ]"
+            <div class="flex items-center gap-4">
+                <div class="p-2 rounded-full hover:bg-gray-100">
+                    <svg
+                        class="w-6 h-6"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            d="M4 6H20M4 12H20M4 18H20"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+                </div>
+                <h1 class="text-2xl font-bold">Your music streaming stats</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <select
+                    v-model="timeRange"
+                    @change="fetchData"
+                    class="px-4 py-2 border rounded-lg text-sm bg-white"
                 >
-                    {{ range.replace('_', ' ').replace('term', '') }}
-                </button>
+                    <option value="long_term">All time</option>
+                    <option value="medium_term">This Month</option>
+                    <option value="short_term">This Year</option>
+                </select>
+                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
             </div>
         </div>
-    </header>
+
+        
+    </div>
 </template>
 
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue';
+import { ref, onMounted } from 'vue';
+import { PlayCircle } from 'lucide-vue-next';
+import { SpotifyService } from '../services/spotify';
 
-const props = defineProps({
-    initialTimeRange: {
-        type: String,
-        required: true
+const timeRange = ref('long_term');
+const topArtists = ref([]);
+const topTracks = ref([]);
+const recentTracks = ref([]);
+
+const spotify = new SpotifyService(
+    localStorage.getItem('spotify_access_token') || ''
+);
+
+const fetchData = async () => {
+    try {
+        const [artistsData, tracksData, recentData] = await Promise.all([
+            spotify.getTopArtists(timeRange.value),
+            spotify.getTopTracks(timeRange.value),
+            spotify.getRecentlyPlayed()
+        ]);
+
+        topArtists.value = artistsData.items;
+        topTracks.value = tracksData.items;
+        recentTracks.value = recentData.items;
+    } catch (error) {
+        console.error('Error fetching data:', error);
     }
-});
-
-const emit = defineEmits(['time-range-change']);
-
-const handleTimeRangeChange = (range: string) => {
-    emit('time-range-change', range);
 };
+
+onMounted(fetchData);
 </script>
