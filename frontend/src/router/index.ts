@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import SignupView from '@/views/SignupView.vue';
-import DashboardView from '@/views/DashboardView.vue';
+import SignupView from '../views/SignupView.vue';
+import DashboardView from '../views/DashboardView.vue';
+import CallbackView from '../views/CallbackView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,9 +18,15 @@ const router = createRouter({
             component: SignupView
         },
         {
+            path: '/callback',
+            name: 'callback',
+            component: CallbackView
+        },
+        {
             path: '/dashboard',
             name: 'dashboard',
-            component: DashboardView
+            component: DashboardView,
+            meta: { requiresAuth: true }
         },
         {
             path: '/about',
@@ -30,6 +37,18 @@ const router = createRouter({
             component: () => import('../views/AboutView.vue')
         }
     ]
+});
+
+router.beforeEach((to, from, next) => {
+    const accessToken = localStorage.getItem('spotify_access_token');
+
+    if (to.meta.requiresAuth && !accessToken) {
+        next('/');
+    } else if (to.path === '/' && accessToken) {
+        next('/dashboard');
+    } else {
+        next();
+    }
 });
 
 export default router;

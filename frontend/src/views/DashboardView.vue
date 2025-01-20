@@ -1,14 +1,63 @@
 <script lang="ts">
 import DashboardHeader from '../components/DashboardHeader.vue';
-import { defineComponent } from 'vue';
+import { PlayCircle } from 'lucide-vue-next';
+import { ref, onMounted } from 'vue';
+import { SpotifyService } from '../services/spotify';
 
-export default defineComponent({
-    name: 'DashboardView',
+export default {
     components: {
-        DashboardHeader
+        DashboardHeader,
+        PlayCircle
+    },
+    setup() {
+        const timeRange = ref('medium_term');
+        const topArtists = ref([]);
+        const topTracks = ref([]);
+        const recentTracks = ref([]);
+
+        const spotify = new SpotifyService(
+            localStorage.getItem('spotify_access_token') || ''
+        );
+
+        const fetchData = async () => {
+            try {
+                console.log(
+                    'Fetching data with token:',
+                    localStorage.getItem('spotify_access_token')
+                );
+                const [artistsData, tracksData, recentData] = await Promise.all(
+                    [
+                        spotify.getTopArtists(),
+                        spotify.getTopTracks(),
+                        spotify.getRecentlyPlayed()
+                    ]
+                );
+
+                topArtists.value = artistsData.items;
+                topTracks.value = tracksData.items;
+                recentTracks.value = recentData.items;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        };
+
+        const handleTimeRangeChange = (newTimeRange: string) => {
+            timeRange.value = newTimeRange;
+        };
+
+        onMounted(fetchData);
+
+        return {
+            timeRange,
+            topArtists,
+            topTracks,
+            recentTracks,
+            handleTimeRangeChange
+        };
     }
-});
+};
 </script>
+
 <template>
     <header class="">
         <div class="flex">
@@ -133,7 +182,10 @@ export default defineComponent({
                 </nav>
             </div>
             <div class="mx-auto min-h-screen w-full">
-                <DashboardHeader />
+                <DashboardHeader
+                    :initial-time-range="timeRange"
+                    @time-range-change="handleTimeRangeChange"
+                />
             </div>
         </div>
     </header>
