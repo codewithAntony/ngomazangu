@@ -1,6 +1,17 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineProps({
+    isVisible: {
+        type: Boolean,
+        required: true
+    }
+});
+</script>
+
 <template>
-    <div class="flex flex-col h-screen bg-[#4095C3]">
+    <div
+        class="flex flex-col h-screen bg-[#4095C3] fixed top-0 left-0 w-64"
+        :class="{ hidden: !isVisible }"
+    >
         <div class="mb-9 pt-3 px-2">
             <RouterLink to="/" class="inline-block">
                 <span
@@ -103,3 +114,9 @@
         </nav>
     </div>
 </template>
+
+<style scoped>
+.-translate-x-full {
+    transform: translateX(-100%);
+}
+</style>

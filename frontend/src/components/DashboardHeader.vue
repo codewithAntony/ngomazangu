@@ -2,7 +2,10 @@
     <div class="py-5 px-3 bg-white">
         <div class="flex justify-between items-center">
             <div class="flex items-center gap-4">
-                <div class="p-2 rounded-full hover:bg-gray-100">
+                <div
+                    class="p-2 rounded-full hover:bg-gray-100"
+                    @click="$emit('toggle-sidebar')"
+                >
                     <svg
                         class="w-6 h-6"
                         viewBox="0 0 24 24"
@@ -29,11 +32,16 @@
                     <option value="medium_term">This Month</option>
                     <option value="short_term">This Year</option>
                 </select>
-                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
+            </div>
+            <div>
+                <button
+                    class="bg-black text-white px-7 py-2 sm:px-7 sm:py-2 rounded text-sm w-fit mt-2 hover:bg-[#FECA11] hover:text-black"
+                    @click="logout"
+                >
+                    Logout
+                </button>
             </div>
         </div>
-
-        
     </div>
 </template>
 
@@ -41,6 +49,7 @@
 import { ref, onMounted } from 'vue';
 import { PlayCircle } from 'lucide-vue-next';
 import { SpotifyService } from '../services/spotify';
+import { useRouter } from 'vue-router';
 
 const timeRange = ref('long_term');
 const topArtists = ref([]);
@@ -50,6 +59,8 @@ const recentTracks = ref([]);
 const spotify = new SpotifyService(
     localStorage.getItem('spotify_access_token') || ''
 );
+
+const router = useRouter();
 
 const fetchData = async () => {
     try {
@@ -65,6 +76,12 @@ const fetchData = async () => {
     } catch (error) {
         console.error('Error fetching data:', error);
     }
+};
+
+const logout = () => {
+    localStorage.removeItem('spotify_access_token');
+
+    router.push('/');
 };
 
 onMounted(fetchData);

@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { PlayCircle } from 'lucide-vue-next';
 import { SpotifyService } from '../services/spotify';
-
+import Email from '../components/Email.vue';
 interface SpotifyImage {
     url: string;
     height: number;
@@ -87,9 +87,12 @@ onMounted(fetchRecentlyPlayed);
             </div>
         </div>
         <button
-            class="text-white flex justify-center bg-black w-full rounded-md py-2"
+            class="text-white mb-3 flex justify-center bg-black w-full rounded-md py-2"
         >
             See All Recently Played Tracks
         </button>
+        <div>
+            <Email />
+        </div>
     </div>
 </template>

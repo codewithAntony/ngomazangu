@@ -2,7 +2,7 @@
 import DashboardHeader from '../components/DashboardHeader.vue';
 import DashboardBread from '../components/DashboardBread.vue';
 import DashboardSidebar from '../components/DashboardSidebar.vue';
-import { useRouter } from 'vue-router';
+import { ref } from 'vue';
 
 export default {
     components: {
@@ -11,15 +11,15 @@ export default {
         DashboardBread
     },
     setup() {
-        const router = useRouter();
+        const isSidebarVisible = ref(true);
 
-        const logout = () => {
-            localStorage.removeItem('spotify_access_token');
-
-            router.push('/');
+        const toggleSidebar = () => {
+            isSidebarVisible.value = !isSidebarVisible.value;
         };
+
         return {
-            logout
+            isSidebarVisible,
+            toggleSidebar
         };
     }
 };
@@ -27,14 +27,14 @@ export default {
 
 <template>
     <div class="flex">
-        <DashboardSidebar />
-        <div>
-            <h1>Welcome to Your Dashboard</h1>
-            <button @click="logout">Logout</button>
-        </div>
-        <div class="flex flex-col">
+        <DashboardSidebar :isVisible="isSidebarVisible" class="sidebar" />
+
+        <div
+            class="flex flex-col flex-grow main-content"
+            :class="{ 'ml-0': !isSidebarVisible, 'ml-64': isSidebarVisible }"
+        >
             <div class="">
-                <DashboardHeader />
+                <DashboardHeader @toggle-sidebar="toggleSidebar" />
             </div>
             <div>
                 <DashboardBread />
@@ -42,4 +42,24 @@ export default {
         </div>
     </div>
 </template>
-<script></script>
+
+<style>
+:root {
+    --transition-duration: 300ms;
+    --sidebar-width: 16rem;
+}
+
+.sidebar {
+    width: var(--sidebar-width);
+    transform: translateX(0);
+    transition: transform var(--transition-duration) ease-in-out;
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+.main-content {
+    transition: margin-left var(--transition-duration) ease-in-out;
+}
+</style>
