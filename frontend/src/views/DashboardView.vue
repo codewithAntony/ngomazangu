@@ -34,10 +34,10 @@ export default {
             class="flex flex-col flex-grow main-content"
             :class="{ 'ml-0': !isSidebarVisible, 'ml-64': isSidebarVisible }"
         >
-            <div class="fixed top-0 left-0 right-0 z-30 bg-white sm:static">
+            <div class="fixed top-0 left-0 right-0 z-30 bg-[#FBE9F3] sm:static">
                 <DashboardHeader @toggle-sidebar="toggleSidebar" />
             </div>
-            <div class="">
+            <div class="bg-[#FBE9F3]">
                 <DashboardBread />
             </div>
         </div>
@@ -54,7 +54,7 @@ export default {
     width: var(--sidebar-width);
     transform: translateX(0);
     transition: transform var(--transition-duration) ease-in-out;
-    position: fixed; 
+    position: fixed;
     top: 0;
     bottom: 0;
     z-index: 10;
@@ -66,7 +66,6 @@ export default {
 
 .main-content {
     transition: margin-left var(--transition-duration) ease-in-out;
-    
 }
 
 @media (max-width: 767px) {

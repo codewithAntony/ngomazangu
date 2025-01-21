@@ -30,7 +30,7 @@ onMounted(() => {
                 <div class="flex gap-3">
                     <RouterLink to="/signup">
                         <button
-                            class="bg-black text-white px-7 py-2 sm:px-11 sm:py-2 rounded text-sm w-fit mt-2 hover:bg-[#FECA11] hover:text-black"
+                            class="bg-blue-400 text-white px-7 py-2 sm:px-11 sm:py-2 rounded text-sm w-fit mt-2 hover:bg-blue-300 hover:text-black"
                         >
                             SignUp
                         </button>
@@ -58,7 +58,7 @@ onMounted(() => {
                         </p>
                         <RouterLink to="/signup">
                             <button
-                                class="bg-black text-white px-7 py-2 sm:px-11 sm:py-2 rounded text-sm w-fit mt-2 hover:bg-[#FECA11] hover:text-black"
+                                class="bg-blue-400 text-white px-7 py-2 sm:px-11 sm:py-2 rounded text-sm w-fit mt-2 hover:bg-blue-300 hover:text-black"
                             >
                                 SignUp
                             </button>

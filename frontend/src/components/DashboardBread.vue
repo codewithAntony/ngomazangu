@@ -126,7 +126,7 @@ onMounted(fetchData);
                     </div>
                 </div>
                 <button
-                    class="text-white flex justify-center bg-black w-full rounded-md py-2"
+                    class="text-white flex justify-center bg-[#15161E] w-full rounded-md py-2"
                 >
                     See All Top Artists
                 </button>
@@ -197,7 +197,7 @@ onMounted(fetchData);
                     </div>
                 </div>
                 <button
-                    class="text-white flex justify-center bg-black w-full rounded-md py-2"
+                    class="text-white flex justify-center bg-[#15161E] w-full rounded-md py-2"
                 >
                     See All Top Tracks
                 </button>
@@ -272,7 +272,7 @@ onMounted(fetchData);
                     </div>
                 </div>
                 <button
-                    class="text-white flex justify-center bg-black w-full rounded-md py-2"
+                    class="text-white flex justify-center bg-[#15161E] w-full rounded-md py-2"
                 >
                     See All Top Discovers
                 </button>

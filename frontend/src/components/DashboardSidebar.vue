@@ -9,7 +9,7 @@ defineProps({
 
 <template>
     <div
-        class="flex flex-col h-screen bg-[#4095C3] fixed top-0 left-0 w-64"
+        class="flex flex-col h-screen bg-[#15161E] fixed top-0 left-0 w-64"
         :class="{ hidden: !isVisible }"
     >
         <div class="mb-9 pt-3 px-2">
@@ -76,37 +76,21 @@ defineProps({
                 </a>
 
                 <li>
-                    <a
-                        href="#dashboard"
-                        class="text-gray-700 hover:text-[#FECA11]"
-                        >Dashboard</a
-                    >
+                    <a href="#dashboard" class="text-white">Dashboard</a>
                 </li>
                 <li>
-                    <a
-                        href="#top-artists"
-                        class="text-gray-700 hover:text-[#FECA11]"
-                        >Top Artists</a
-                    >
+                    <a href="#top-artists" class="text-white">Top Artists</a>
                 </li>
                 <li>
-                    <a
-                        href="#top-tracks"
-                        class="text-gray-700 hover:text-[#FECA11]"
-                        >Top Tracks</a
-                    >
+                    <a href="#top-tracks" class="text-white">Top Tracks</a>
                 </li>
                 <li>
-                    <a
-                        href="#recently-played"
-                        class="text-gray-700 hover:text-[#FECA11]"
+                    <a href="#recently-played" class="text-white"
                         >Recently Played</a
                     >
                 </li>
                 <li>
-                    <a
-                        href="#new-discovery"
-                        class="text-gray-700 hover:text-[#FECA11]"
+                    <a href="#new-discovery" class="text-white"
                         >New Discovery</a
                     >
                 </li>
@@ -114,5 +98,3 @@ defineProps({
         </nav>
     </div>
 </template>
-
-

@@ -67,10 +67,12 @@ export default {
 };
 </script>
 <template>
-    <div class="h-screen font-[sans-serif] items-center justify-center p-4">
+    <div
+        class="h-screen bg-[#FBE9F3] font-[sans-serif] items-center justify-center p-4"
+    >
         <div
             v-if="!accessToken"
-            class="flex flex-col justify-center items-center bg-white max-w-7xl h-full"
+            class="flex flex-col justify-center items-center bg-[#FBE9F3] max-w-7xl h-full"
         >
             <div class="text-center mb-5">
                 <RouterLink to="/">
@@ -90,14 +92,14 @@ export default {
                     <div class="w-full max-w-md space-y-6">
                         <div class="text-center">
                             <h3
-                                class="text-blue-500 lg:text-3xl text-2xl font-extrabold max-md:text-center"
+                                class="text-gray-600 lg:text-3xl text-2xl font-extrabold max-md:text-center"
                             >
                                 Create an account
                             </h3>
                         </div>
                         <div class="text-center">
                             <h2
-                                class="text-black sm:font-extrabold text-lg font-semibold pb-3 sm:text-1xl"
+                                class="text-gray-600 sm:font-extrabold text-lg font-semibold pb-3 sm:text-1xl"
                             >
                                 Discover your music streaming stats
                             </h2>
@@ -174,11 +176,12 @@ export default {
                         </button>
 
                         <p class="text-xs text-gray-400">
-                            Echoes use Spotify Web API, and Spotify Implicit
+                            NgomaZangu use Spotify Web API, and Spotify Implicit
                             Grant Flow for user Authorization, also require
-                            access to your Spotify account to perform but
+                            access to your Spotify account to perform but <br />
                             application works as client side only and your
-                            Spotify data is not stored to any server. Learn more
+                            Spotify data is not stored <br />
+                            to any server. Learn more
                         </p>
                     </div>
                 </div>

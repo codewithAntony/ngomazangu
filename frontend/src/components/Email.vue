@@ -40,7 +40,7 @@ export default defineComponent({
 });
 </script>
 <template>
-    <div class="bg-black mb-5 py-5 rounded-lg w-15 h-50">
+    <div class="bg-[#15161E] mb-5 py-5 rounded-lg w-15 h-50">
         <div class="flex text-center space-y-7 flex-col">
             <h2 class="text-white font-bold text-lg">
                 We send monthly reports, <br />

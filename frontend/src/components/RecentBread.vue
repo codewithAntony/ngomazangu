@@ -87,7 +87,7 @@ onMounted(fetchRecentlyPlayed);
             </div>
         </div>
         <button
-            class="text-white mb-3 flex justify-center bg-black w-full rounded-md py-2"
+            class="text-white mb-3 flex justify-center bg-[#15161E] w-full rounded-md py-2"
         >
             See All Recently Played Tracks
         </button>
