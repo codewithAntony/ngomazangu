@@ -64,14 +64,14 @@ onMounted(fetchData);
 </script>
 <template>
     <div class="flex flex-col">
-        <div class="grid min-h-screen w-full px-5 grid-cols-3 gap-5 mb-3">
-            <div class="space-y-4">
+        <div class="md:grid min-h-screen w-full px-5 md:grid-cols-3 gap-5 mb-3">
+            <div class="space-y-4 mt-5">
                 <div class="relative group rounded-sm overflow-hidden">
                     <img
                         v-if="topArtists[0]?.images[0]?.url"
                         :src="topArtists[0].images[0].url"
                         :alt="topArtists[0].name"
-                        class="w-full h-[400px] object-cover"
+                        class="w-full h-[200px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                     />
                     <div
                         class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white"
@@ -133,13 +133,13 @@ onMounted(fetchData);
             </div>
 
             <!-- Top Tracks Section -->
-            <div class="space-y-4">
+            <div class="space-y-4 mt-5">
                 <div class="relative group rounded-sm overflow-hidden">
                     <img
                         v-if="topTracks[0]?.album?.images[0]?.url"
                         :src="topTracks[0].album.images[0].url"
                         :alt="topTracks[0].name"
-                        class="w-full h-[400px] object-cover"
+                        class="w-full h-[200px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                     />
                     <div
                         class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white"
@@ -204,13 +204,13 @@ onMounted(fetchData);
             </div>
 
             <!-- Top Discover Section -->
-            <div class="space-y-4">
+            <div class="space-y-4 mt-5">
                 <div class="relative group rounded-sm overflow-hidden">
                     <img
                         v-if="recentTracks[0]?.track?.album?.images[0]?.url"
                         :src="recentTracks[0].track.album.images[0].url"
                         :alt="recentTracks[0].track.name"
-                        class="w-full h-[400px] object-cover"
+                        class="w-full h-[200px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                     />
                     <div
                         class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white"

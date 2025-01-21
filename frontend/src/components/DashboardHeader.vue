@@ -20,7 +20,9 @@
                         />
                     </svg>
                 </div>
-                <h1 class="text-2xl font-bold">Your music streaming stats</h1>
+                <h1 class="text-lg font-medium sm:font-bold sm:text-2xl">
+                    Your music streaming stats
+                </h1>
             </div>
             <div class="flex items-center gap-4">
                 <select
