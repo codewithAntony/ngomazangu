@@ -12,7 +12,6 @@ export default {
     },
     setup() {
         const isSidebarVisible = ref(false);
-        const isSmallScreen = ref(window.innerWidth < 768);
 
         const toggleSidebar = () => {
             isSidebarVisible.value = !isSidebarVisible.value;
@@ -27,17 +26,20 @@ export default {
 </script>
 
 <template>
-    <div class="flex pt-6">
-        <DashboardSidebar :isVisible="isSidebarVisible" class="sidebar" />
+    <div class="flex">
+        <div class="fixed top-0 left-0 right-0 z-30 bg-white">
+            <DashboardHeader @toggle-sidebar="toggleSidebar" />
+        </div>
+
+        <div class="">
+            <DashboardSidebar :isVisible="isSidebarVisible" class="sidebar" />
+        </div>
 
         <div
             class="flex flex-col flex-grow main-content"
             :class="{ 'ml-0': !isSidebarVisible, 'ml-64': isSidebarVisible }"
         >
-            <div class="fixed top-0 left-0 right-0 z-30 bg-[#FBE9F3] sm:static">
-                <DashboardHeader @toggle-sidebar="toggleSidebar" />
-            </div>
-            <div class="bg-[#FBE9F3]">
+            <div class="mt-16">
                 <DashboardBread />
             </div>
         </div>
@@ -52,16 +54,17 @@ export default {
 
 .sidebar {
     width: var(--sidebar-width);
-    transform: translateX(0);
+    transform: translateX(-100%);
     transition: transform var(--transition-duration) ease-in-out;
     position: fixed;
-    top: 0;
+    top: 64px;
     bottom: 0;
-    z-index: 10;
+    z-index: 20;
+    background-color: #15161e;
 }
 
-.sidebar.hidden {
-    transform: translateX(-100%);
+.sidebar.visible {
+    transform: translateX(0);
 }
 
 .main-content {
@@ -71,10 +74,6 @@ export default {
 @media (max-width: 767px) {
     .main-content {
         margin-left: 0;
-    }
-
-    .sidebar.hidden {
-        transform: translateX(-100%);
     }
 }
 </style>

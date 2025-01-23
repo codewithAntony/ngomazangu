@@ -9,8 +9,8 @@ defineProps({
 
 <template>
     <div
-        class="flex flex-col h-screen bg-[#15161E] fixed top-0 left-0 w-64"
-        :class="{ hidden: !isVisible }"
+        class="flex flex-col pt-10 items-center h-screen fixed top-0 left-0 w-64"
+        :class="{ visible: isVisible }"
     >
         <div class="mb-9 pt-3 px-2">
             <RouterLink to="/" class="inline-block">
