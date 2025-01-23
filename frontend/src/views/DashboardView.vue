@@ -43,6 +43,7 @@ export default {
                 <DashboardBread />
             </div>
         </div>
+        <RouterView />
     </div>
 </template>
 

@@ -97,6 +97,7 @@ export default {
                                 Create an account
                             </h3>
                         </div>
+
                         <div class="text-center">
                             <h2
                                 class="text-gray-600 sm:font-extrabold text-lg font-semibold pb-3 sm:text-1xl"

@@ -51,7 +51,7 @@ onMounted(fetchRecentlyPlayed);
 </script>
 
 <template>
-    <div class="flex flex-col px-5 mb-3">
+    <div id="recentplayed" class="flex flex-col px-5 mb-3">
         <h1 class="text-2xl font-bold my-3">Recently Played Tracks</h1>
         <div class="space-y-2">
             <div
