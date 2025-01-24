@@ -177,9 +177,10 @@ export default {
                         </button>
 
                         <p class="text-xs text-gray-400">
-                            NgomaZangu uses Spotify Web API, and Spotify Implicit
-                            Grant Flow for user Authorization, also require
-                            access to your Spotify account to perform but <br />
+                            NgomaZangu uses the Spotify Web API, and Spotify
+                            Implicit Grant Flow for user Authorization, also
+                            require access to your Spotify account to perform
+                            but <br />
                             application works as client side only and your
                             Spotify data is not stored <br />
                             to any server. Learn more
