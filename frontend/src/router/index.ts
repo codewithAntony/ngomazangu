@@ -5,6 +5,7 @@ import DashboardView from '../views/DashboardView.vue';
 import CallbackView from '../views/CallbackView.vue';
 import TopArtists from '../views/TopArtistsView.vue';
 import RecentlyPlayed from '../components/RecentBread.vue';
+import TopTracks from '../views/TopTracksView.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
             path: '/recently-played',
             name: 'recentlyPlayed',
             component: RecentlyPlayed
+        },
+        {
+            path: '/top-tracks',
+            name: 'topTracks',
+            component: TopTracks
         },
         {
             path: '/dashboard',

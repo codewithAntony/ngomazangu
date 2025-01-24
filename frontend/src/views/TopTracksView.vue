@@ -19,7 +19,7 @@ interface SpotifyArtist {
 }
 
 const timeRange = ref('long_term');
-const topArtists = ref<SpotifyArtist[]>([]);
+const topTracks = ref<SpotifyTrack[]>([]);
 const isSidebarVisible = ref(false);
 
 const toggleSidebar = () => {
@@ -32,9 +32,9 @@ const spotify = new SpotifyService(
 const fetchData = async () => {
     try {
         console.log('fetching data..');
-        const artistsData = await spotify.getTopArtists(timeRange.value, 40);
-        console.log('Artists Data:', artistsData);
-        topArtists.value = artistsData.items;
+        const tracksData = await spotify.getTopTracks(timeRange.value, 40);
+        console.log('Artists Data:', tracksData);
+        topTracks.value = tracksData.items;
     } catch (error) {
         console.error('Error fetching data:', error);
     }
@@ -60,7 +60,6 @@ const handleTimeRangeChange = (newTimeRange: string) => {
             :class="{ 'ml-0': !isSidebarVisible, 'ml-64': isSidebarVisible }"
         >
             <div class="mt-16">
-                <!-- Add margin-top to account for the fixed header -->
                 <div
                     id="topartists"
                     class="min-h-screen w-full px-5 gap-5 mb-3"
@@ -68,9 +67,9 @@ const handleTimeRangeChange = (newTimeRange: string) => {
                     <div class="space-y-4 mt-5">
                         <div class="relative group rounded-sm overflow-hidden">
                             <img
-                                v-if="topArtists[0]?.images[0]?.url"
-                                :src="topArtists[0].images[0].url"
-                                :alt="topArtists[0].name"
+                                v-if="topTracks[0]?.album?.images[0]?.url"
+                                :src="topTracks[0].album.images[0].url"
+                                :alt="topTracks[0].name"
                                 class="w-full h-[200px] sm:h-[300px] md:h-[350px] lg:h-[400px] object-cover"
                             />
                             <div
@@ -80,7 +79,7 @@ const handleTimeRangeChange = (newTimeRange: string) => {
                                     Top Artists
                                 </div>
                                 <h2 class="text-3xl font-bold mb-4">
-                                    {{ topArtists[0]?.name || 'Loading...' }}
+                                    {{ topTracks[0]?.name || 'Loading...' }}
                                 </h2>
                                 <button
                                     class="opacity-0 group-hover:opacity-100 transition-opacity absolute right-6 bottom-6"
@@ -93,11 +92,8 @@ const handleTimeRangeChange = (newTimeRange: string) => {
                         <!-- Artists List -->
                         <div class="space-y-2">
                             <div
-                                v-for="(artist, index) in topArtists.slice(
-                                    0,
-                                    40
-                                )"
-                                :key="artist.id"
+                                v-for="(track, index) in topTracks.slice(0, 40)"
+                                :key="track.id"
                                 class="flex items-center justify-between p-4 hover:bg-gray-50 rounded-lg group"
                             >
                                 <div class="flex items-center gap-4">
@@ -106,25 +102,21 @@ const handleTimeRangeChange = (newTimeRange: string) => {
                                         >{{ index + 1 }}</span
                                     >
                                     <img
-                                        v-if="artist.images[0]?.url"
-                                        :src="artist.images[0].url"
-                                        alt="artist.name"
+                                        v-if="track.album.images[0]?.url"
+                                        :src="track.album.images[0].url"
+                                        alt="track.name"
                                         class="w-12 h-12 rounded"
                                     />
                                     <div class="overflow-hidden">
                                         <h3
                                             class="font-medium truncate max-w-[150px] md:max-w-[250px]"
                                         >
-                                            {{ artist.name }}
+                                            {{ track.name }}
                                         </h3>
                                         <p
                                             class="text-gray-500 truncate max-w-[150px] md:max-w-[250px]"
                                         >
-                                            {{
-                                                artist.genres.join(', ') ||
-                                                'No genres available'
-                                            }}
-                                            <!-- Display genres -->
+                                            {{ track.artists[0].name }}
                                         </p>
                                     </div>
                                 </div>
@@ -138,6 +130,9 @@ const handleTimeRangeChange = (newTimeRange: string) => {
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
+            <Email />
         </div>
     </div>
 </template>

@@ -21,7 +21,7 @@
                     </svg>
                 </div>
                 <h1 class="text-lg font-medium sm:font-bold sm:text-2xl">
-                    Top Artists
+                    Your music streaming stats
                 </h1>
             </div>
 

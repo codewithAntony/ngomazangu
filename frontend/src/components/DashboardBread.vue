@@ -125,11 +125,13 @@ onMounted(fetchData);
                         </button>
                     </div>
                 </div>
-                <button
-                    class="text-white flex justify-center bg-[#15161E] w-full rounded-md py-2"
-                >
-                    See All Top Artists
-                </button>
+                <RouterLink to="/top-artists">
+                    <button
+                        class="text-white flex justify-center bg-[#15161E] w-full rounded-md py-2"
+                    >
+                        See All Top Artists
+                    </button>
+                </RouterLink>
             </div>
 
             <!-- Top Tracks Section -->
@@ -196,14 +198,16 @@ onMounted(fetchData);
                         </button>
                     </div>
                 </div>
-                <button
-                    class="text-white flex justify-center bg-[#15161E] w-full rounded-md py-2"
-                >
-                    See All Top Tracks
-                </button>
+                <RouterLink to="/top-tracks">
+                    <button
+                        class="text-white flex justify-center bg-[#15161E] w-full rounded-md py-2"
+                    >
+                        See All Top Tracks
+                    </button>
+                </RouterLink>
             </div>
 
-            <!-- Top Discover Section -->
+            <!-- recent -->
             <div class="space-y-4 mt-5">
                 <div class="relative group rounded-sm overflow-hidden">
                     <img
@@ -215,7 +219,9 @@ onMounted(fetchData);
                     <div
                         class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/60 to-transparent text-white"
                     >
-                        <div class="text-sm font-medium mb-2">Top Discover</div>
+                        <div class="text-sm font-medium mb-2">
+                            Recent Tracks
+                        </div>
                         <h2 class="text-3xl font-bold mb-2">
                             {{ recentTracks[0]?.track?.name || 'Loading...' }}
                         </h2>
@@ -233,7 +239,7 @@ onMounted(fetchData);
                     </div>
                 </div>
 
-                <!-- Discover List -->
+                <!-- Recent Tracks -->
                 <div class="space-y-2">
                     <div
                         v-for="(item, index) in recentTracks.slice(1, 4)"
@@ -271,15 +277,17 @@ onMounted(fetchData);
                         </button>
                     </div>
                 </div>
-                <button
-                    class="text-white flex justify-center bg-[#15161E] w-full rounded-md py-2"
-                >
-                    See All Top Discovers
-                </button>
+                <RouterLink to="/recent-tracks">
+                    <button
+                        class="text-white flex justify-center bg-[#15161E] w-full rounded-md py-2"
+                    >
+                        Recent Tracks
+                    </button>
+                </RouterLink>
             </div>
         </div>
-        <div>
+        <!-- <div>
             <RecentBread />
-        </div>
+        </div> -->
     </div>
 </template>
