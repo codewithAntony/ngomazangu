@@ -3,7 +3,8 @@ import HomeView from '../views/HomeView.vue';
 import SignupView from '../views/SignupView.vue';
 import DashboardView from '../views/DashboardView.vue';
 import CallbackView from '../views/CallbackView.vue';
-import TopArtists from '../components/TopArtists.vue';
+import TopArtists from '../views/TopArtistsView.vue';
+import RecentlyPlayed from '../components/RecentBread.vue';
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +28,11 @@ const router = createRouter({
             path: '/top-artists',
             name: 'topArtists',
             component: TopArtists
+        },
+        {
+            path: '/recently-played',
+            name: 'recentlyPlayed',
+            component: RecentlyPlayed
         },
         {
             path: '/dashboard',

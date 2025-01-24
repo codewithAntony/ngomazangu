@@ -21,7 +21,7 @@
                     </svg>
                 </div>
                 <h1 class="text-lg font-medium sm:font-bold sm:text-2xl">
-                    Your music streaming stats
+                    Top Artists
                 </h1>
             </div>
 
@@ -30,18 +30,10 @@
                     v-model="selectedTimeRange"
                     @change="handleTimeRangeChange"
                     class="px-4 hidden py-2 border rounded-lg text-sm bg-white sm:inline-flex"
-                    :disabled="isLoading"
                 >
-                    <option v-if="isLoading" value="" disabled>
-                        Loading...
-                    </option>
-                    <option
-                        v-for="option in timeRangeOptions"
-                        :key="option.value"
-                        :value="option.value"
-                    >
-                        {{ option.label }}
-                    </option>
+                    <option value="long_term">All Time</option>
+                    <option value="medium_term">This Month</option>
+                    <option value="short_term">This Year</option>
                 </select>
             </div>
             <div>
@@ -64,12 +56,6 @@ import { useRouter } from 'vue-router';
 
 const emit = defineEmits(['toggle-sidebar', 'time-range-changed']);
 const router = useRouter();
-
-const timeRangeOptions = ref<{ value: string; label: string }[]>([
-    { value: 'long_term', label: 'All time' },
-    { value: 'medium_term', label: 'This Month' },
-    { value: 'short_term', label: 'This Year' }
-]);
 
 const selectedTimeRange = ref('long_term');
 const isLoading = ref(false);

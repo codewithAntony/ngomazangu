@@ -76,9 +76,6 @@ defineProps({
                 </a>
 
                 <li>
-                    <a href="#dashboard" class="text-white">Dashboard</a>
-                </li>
-                <li>
                     <RouterLink to="/top-artists" class="text-white"
                         >Top Artists</RouterLink
                     >
@@ -87,9 +84,7 @@ defineProps({
                     <a href="#top-tracks" class="text-white">Top Tracks</a>
                 </li>
                 <li>
-                    <RouterLink
-                        to="/dashboard/#recentlyplayed"
-                        class="text-white"
+                    <RouterLink to="/recently-played" class="text-white"
                         >Recently Played</RouterLink
                     >
                 </li>
