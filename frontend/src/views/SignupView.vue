@@ -154,5 +154,5 @@ export default {
 </template>
 
 <style>
-/* Additional styling if needed */
+
 </style>
