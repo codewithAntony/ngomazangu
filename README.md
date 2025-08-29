@@ -22,35 +22,41 @@ Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, thi
 ## Tech Stack  
 
 ## Frontend
-- ** Vue 3 with TypeScript
-- ** TailwindCSS for styling
-- ** Axios for API requests
-- ** Email.js for sending emails
-- ** Vitest for unit testing
-- ** Lucide Vue for lightweight Icons
+- Vue 3 with TypeScript
+- TailwindCSS for styling
+- Axios for API requests
+- Email.js for sending emails
+- Vitest for unit testing
+- Lucide Vue for lightweight Icons
 ## Backend
-- ** Node.js with TypeScript
-- ** Express.js for API endpoints
-- ** Vitest for unit testing
+- Node.js with TypeScript
+- Express.js for API endpoints
+- Vitest for unit testing
 ## API
-- ** Spotify Web API
+- Spotify Web API
 ## Auth
-- ** Spotify OAuth
+- Spotify OAuth
 ## Deployment
-- ** Netlify 
+- Netlify 
 
 ---
 
 ## Screenshots  
 
 ### Homepage
-![Homepage](../public/assets/ngomazanguss.png)
+
+![Homepage](./public/assets/ngomazanguss.png)
+
 
 ### Signup
-![Signup](../public/assets/ngomazangusignup.png)
+
+![Signup](./public/assets/ngomazangusignup.png)
+
 
 ### Dashboard
-![Dashboard](../public/assets/ngomazangudashboard.png) 
+
+![Dashboard](./public/assets/ngomazangudashboard.png) 
+
 
 ---
 
@@ -58,34 +64,45 @@ Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, thi
 
 ### 1. Clone the Repository  
 ```bash
+
 git clone https://github.com/codewithAntony/ngomazangu.git
+
 cd ngomazangu
+
 ```
 ---
 
 ### 2. Install Dependencies 
 ```bash
+
 npm install
+
 ```
 ---
 ### 3. Create a Spotify App
-- 1. Go to the [![Spotify Developer Dashboard]([https://img.shields.io/badge/Demo-Live-green?style=flat&logo=netlify)](https://ngomazangu.netlify.app](https://developer.spotify.com/))
-  2. Create a new app and copy your Client ID & Client Secret.
-  3. Add your callback/redirect URI (e.g., http://localhost:3000/callback).
+1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/applications).
+2. Create a new app and copy your Client ID & Client Secret.
+3. Add your callback/redirect URI (e.g., `http://localhost:3000/callback`).
 
 ---
 ### 4. Set Up Environment Variables
 - Create a .env file in the root directory and add:
 ```bash
+
 VITE_SPOTIFY_CLIENT_ID=your_client_id
+
 VITE_SPOTIFY_CLIENT_SECRET=your_client_secret
+
 VITE_REDIRECT_URI=http://localhost:3000/callback
+
 ```
 ---
 
 ### 5. Run the app
 ```bash
+
 npm run dev
+
 ```
 
 ---
