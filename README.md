@@ -45,17 +45,17 @@ Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, thi
 
 ### Homepage
 
-![Homepage](./public/assets/ngomazanguss.png)
+![Homepage](./frontend/public/assets/ngomazanguss.png)
 
 
 ### Signup
 
-![Signup](./public/assets/ngomazangusignup.png)
+![Signup](./frontend/public/assets/ngomazangusignup.png)
 
 
 ### Dashboard
 
-![Dashboard](./public/assets/ngomazangudashboard.png) 
+![Dashboard](./frontend/public/assets/ngomazangudashboard.png) 
 
 
 ---
@@ -117,7 +117,7 @@ To deploy tour own version
 ```bash
 npm run build
 ```
-Then upload the /dist folder to netlify
+Then upload the ```bash /dist ``` folder to netlify
 
 
 
