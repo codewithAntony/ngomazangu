@@ -8,35 +8,61 @@ NgomaZangu is a **Spotify-powered analytics dashboard** that lets users visualiz
 Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, this project showcases real-world skills in API integration, authentication flows, and data visualization.
 ---
 
-## 🚀 Features  
+## Features  
 
-- 🔑 **Spotify Authentication** – Secure login with Spotify OAuth.  
-- 📊 **Music Analytics Dashboard** – See top tracks, artists, and genres.  
-- 🎨 **Clean UI with TailwindCSS** – Responsive, mobile-friendly design.  
-- 🔄 **Real-Time API Integration** – Fetch live user data from Spotify.  
-- 📅 **Listening History** – Explore recently played tracks.  
-- 🌐 **Deployed Live on Netlify** – Fast and production-ready.  
-
----
-
-## 🛠️ Tech Stack  
-
-- **Frontend:** [Vue 3](https://vuejs.org/), [TailwindCSS](https://tailwindcss.com/)  
-- **API:** [Spotify Web API](https://developer.spotify.com/documentation/web-api/)  
-- **Auth:** [Spotify OAuth](https://developer.spotify.com/documentation/general/guides/authorization/)  
-- **Deployment:** [Netlify](https://www.netlify.com/)  
+- **Spotify Authentication** – Secure login with Spotify OAuth.  
+- **Music Analytics Dashboard** – See top tracks, artists, and genres.  
+- **Clean UI with TailwindCSS** – Responsive, mobile-friendly design.  
+- **Real-Time API Integration** – Fetch live user data from Spotify.  
+- **Listening History** – Explore recently played tracks.  
+- **Deployed Live on Netlify** – Fast and production-ready.  
 
 ---
 
-## 📸 Screenshots  
+## Tech Stack  
+
+## Frontend
+- ** Vue 3 with TypeScript
+- ** TailwindCSS for styling
+- ** Axios for API requests
+- ** Email.js for sending emails
+- ** Vitest for unit testing
+- ** Lucide Vue for lightweight Icons
+## Backend
+- ** Node.js with TypeScript
+- ** Express.js for API endpoints
+- ** Vitest for unit testing
+## API
+- ** Spotify Web API
+## Auth
+- ** Spotify OAuth
+## Deployment
+- ** Netlify 
+
+---
+
+## Screenshots  
 
 *(Add a few screenshots or GIFs of the dashboard here)*  
 
 ---
 
-## ⚙️ Getting Started  
+## Getting Started  
+### Homepage
+![Homepage](../public/assets/ngomazanguss.png)
 
-### 1️⃣ Clone the Repository  
+### Signup
+![Signup](../public/assets/ngomazangusignup.png)
+
+### Dashboard
+![Dashboard](../public/assets/ngomazangudashboard.png)
+
+### Clone the Repository  
 ```bash
 git clone https://github.com/codewithAntony/ngomazangu.git
 cd ngomazangu
+
+### Install Dependencies  
+```bash
+npm install
+
