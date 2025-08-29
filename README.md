@@ -5,8 +5,7 @@
 
 NgomaZangu is a **Spotify-powered analytics dashboard** that lets users visualize their listening habits in a clean, modern interface. It integrates with the **Spotify API** to display top tracks, artists, playlists, and personalized stats.  
 
-Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, this project showcases real-world skills in API integration, authentication flows, and data visualization — the kind of work companies expect from a junior software engineer.  
-
+Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, this project showcases real-world skills in API integration, authentication flows, and data visualization.
 ---
 
 ## 🚀 Features  
