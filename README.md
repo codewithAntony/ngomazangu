@@ -43,11 +43,6 @@ Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, thi
 
 ## Screenshots  
 
-*(Add a few screenshots or GIFs of the dashboard here)*  
-
----
-
-## Getting Started  
 ### Homepage
 ![Homepage](../public/assets/ngomazanguss.png)
 
@@ -55,14 +50,59 @@ Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, thi
 ![Signup](../public/assets/ngomazangusignup.png)
 
 ### Dashboard
-![Dashboard](../public/assets/ngomazangudashboard.png)
+![Dashboard](../public/assets/ngomazangudashboard.png) 
 
-### Clone the Repository  
+---
+
+## Getting Started  
+
+### 1. Clone the Repository  
 ```bash
 git clone https://github.com/codewithAntony/ngomazangu.git
 cd ngomazangu
+```
+---
 
-### Install Dependencies  
+### 2. Install Dependencies 
 ```bash
 npm install
+```
+---
+### 3. Create a Spotify App
+- 1. Go to the [![Spotify Developer Dashboard]([https://img.shields.io/badge/Demo-Live-green?style=flat&logo=netlify)](https://ngomazangu.netlify.app](https://developer.spotify.com/))
+  2. Create a new app and copy your Client ID & Client Secret.
+  3. Add your callback/redirect URI (e.g., http://localhost:3000/callback).
+
+---
+### 4. Set Up Environment Variables
+- Create a .env file in the root directory and add:
+```bash
+VITE_SPOTIFY_CLIENT_ID=your_client_id
+VITE_SPOTIFY_CLIENT_SECRET=your_client_secret
+VITE_REDIRECT_URI=http://localhost:3000/callback
+```
+---
+
+### 5. Run the app
+```bash
+npm run dev
+```
+
+---
+
+### Deployment
+This project is deployed on Netlify:
+[![Live Demo](https://img.shields.io/badge/Demo-Live-green?style=flat&logo=netlify)](https://ngomazangu.netlify.app) 
+
+---
+
+To deploy tour own version
+```bash
+npm run build
+```
+Then upload the /dist folder to netlify
+
+
+
+
 
