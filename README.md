@@ -117,7 +117,7 @@ To deploy tour own version
 ```bash
 npm run build
 ```
-Then upload the ```bash /dist ``` folder to netlify
+Then upload the ```/dist ``` folder to netlify
 
 
 
