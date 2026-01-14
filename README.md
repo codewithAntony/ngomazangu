@@ -82,7 +82,7 @@ npm install
 ### 3. Create a Spotify App
 1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/applications).
 2. Create a new app and copy your Client ID & Client Secret.
-3. Add your callback/redirect URI (e.g., `http://localhost:3000/callback`).
+3. Add your callback/redirect URI (e.g., `http://localhost:3000/callback`)
 
 ---
 ### 4. Set Up Environment Variables
