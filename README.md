@@ -36,12 +36,10 @@ Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, thi
 - Spotify Web API
 ## Auth
 - Spotify OAuth
-## Deployment
-- Netlify 
+ 
 
 ---
 
-## Screenshots  
 
 ### Homepage
 
