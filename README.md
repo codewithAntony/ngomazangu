@@ -3,7 +3,7 @@
 [![Live Demo](https://img.shields.io/badge/Demo-Live-green?style=flat&logo=netlify)](https://ngomazangu.netlify.app)  
 [![GitHub](https://img.shields.io/badge/Repo-codewithAntony/ngomazangu-blue?style=flat&logo=github)](https://github.com/codewithAntony/ngomazangu)  
 
-NgomaZangu is a **Spotify-powered analytics dashboard** that lets users visualize their listening habits in a clean, modern interface. It integrates with the **Spotify API** to display top tracks, artists, playlists, and personalized stats.  
+NgomaZangu is a Spotify-powered analytics dashboard that lets users visualize their listening habits in a clean, modern interface. It integrates with the Spotify API to display top tracks, artists, playlists, and personalized stats.  
 
 Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, this project showcases real-world skills in API integration, authentication flows, and data visualization.
 ---
