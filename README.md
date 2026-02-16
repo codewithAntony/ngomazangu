@@ -15,7 +15,7 @@ Built with **Vue 3**, **TailwindCSS**, and **Spotify OAuth authentication**, thi
 - **Clean UI with TailwindCSS** – Responsive, mobile-friendly design
 - **Real-Time API Integration** – Fetch live user data from Spotify.  
 - **Listening History** – Explore recently played tracks.  
-- **Deployed Live on Netlify** – Fast and production-ready.  
+- **Deployed Live on Netlify** – Fast and production-ready
 
 ---
 
